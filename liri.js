@@ -93,6 +93,11 @@ inputHandler = function (operation,operand) {
     else if (operation == "do-what-it-says") {
         whatItSays(operand)
     }
+    fs.appendFile("log.txt", operation+" "+operand+",", function(err) {
+        if (err) {
+          return console.log(err);
+        }
+      });
 }
 //grab the user input
 var input = process.argv.slice(2)
